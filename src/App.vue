@@ -1,13 +1,19 @@
 <template>
   <div id="app">
-    <div class="todo-wrapper"></div>
+    <div class="todo-wrapper">
+      <Header />
+    </div>
   </div>
 </template>
 
 <script>
+import Header from "./components/Header";
+
 export default {
   name: "App",
-  components: {},
+  components: {
+    Header,
+  },
 };
 </script>
 
