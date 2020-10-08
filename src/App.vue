@@ -2,17 +2,20 @@
   <div id="app">
     <div class="todo-wrapper">
       <Header />
+      <Input />
     </div>
   </div>
 </template>
 
 <script>
 import Header from "./components/Header";
+import Input from "./components/Input";
 
 export default {
   name: "App",
   components: {
     Header,
+    Input,
   },
 };
 </script>
