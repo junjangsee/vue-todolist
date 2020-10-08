@@ -3,6 +3,7 @@
     <div class="todo-wrapper">
       <Header />
       <Input />
+      <List />
     </div>
   </div>
 </template>
@@ -10,12 +11,14 @@
 <script>
 import Header from "./components/Header";
 import Input from "./components/Input";
+import List from "./components/List";
 
 export default {
   name: "App",
   components: {
     Header,
     Input,
+    List,
   },
 };
 </script>
