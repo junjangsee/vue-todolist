@@ -1,24 +1,11 @@
-# vue-todolist
+# 유비씨(UVC) 과제: TodoList 구현하기
 
-## Project setup
-```
-npm install
-```
+이 프로젝트는 유비씨(UVC) 과제입니다.
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+## 기술 스택
 
-### Compiles and minifies for production
-```
-npm run build
-```
+이 프로젝트에 사용된 기술은 다음과 같습니다.
 
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+- Language: HTML, CSS, Javascript
+- Framework: Vue.js
+- Project Setup: Vue-cli
