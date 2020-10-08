@@ -3,7 +3,7 @@
     <div class="todo-wrapper">
       <Header />
       <Input v-on:onAddTodo="handleAddTodo" />
-      <List v-bind:todos="todos" />
+      <List v-bind:todos="todos" v-on:onRemoveTodo="handleRemoveTodo" />
     </div>
   </div>
 </template>
@@ -50,6 +50,11 @@ export default {
 
       localStorage.setItem(todo.id, JSON.stringify(todo));
       this.todos = [...this.todos, todo];
+    },
+
+    handleRemoveTodo(todoId) {
+      localStorage.removeItem(todoId);
+      this.todos = this.todos.filter((todo) => todo.id !== todoId);
     },
   },
 };
