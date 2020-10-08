@@ -1,14 +1,16 @@
 <template>
   <section class="main">
     <ul class="todo-list">
-      <li>todo</li>
-      <!-- <li></li> ...  -->
+      <li v-for="{ id, text } in todos" :key="id">{{ text }}</li>
     </ul>
   </section>
 </template>
 
 <script>
-export default {};
+export default {
+  props: ["todos"],
+  methods: {},
+};
 </script>
 
 <style scoped>

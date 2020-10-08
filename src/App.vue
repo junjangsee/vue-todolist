@@ -2,9 +2,8 @@
   <div id="app">
     <div class="todo-wrapper">
       <Header />
-      <!-- v-on:하위 컴포넌트에서 발생시킨 이벤트 이름="현재 컴포넌트 메서드 명" -->
       <Input v-on:onAddTodo="handleAddTodo" />
-      <List />
+      <List v-bind:todos="todos" />
     </div>
   </div>
 </template>
@@ -26,6 +25,19 @@ export default {
     return {
       todos: [],
     };
+  },
+
+  created() {
+    if (localStorage.length !== 0) {
+      for (let i = 0; i < localStorage.length; i += 1) {
+        if (localStorage.key(i) !== "loglevel:webpack-dev-server") {
+          this.todos = [
+            ...this.todos,
+            JSON.parse(localStorage.getItem(localStorage.key(i))),
+          ];
+        }
+      }
+    }
   },
 
   methods: {
