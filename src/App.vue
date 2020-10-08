@@ -3,7 +3,11 @@
     <div class="todo-wrapper">
       <Header />
       <Input v-on:onAddTodo="handleAddTodo" />
-      <List v-bind:todos="todos" v-on:onRemoveTodo="handleRemoveTodo" />
+      <List
+        v-bind:todos="todos"
+        v-on:onRemoveTodo="handleRemoveTodo"
+        v-on:onToggleTodo="handleToggleTodo"
+      />
     </div>
   </div>
 </template>
@@ -28,14 +32,14 @@ export default {
   },
 
   created() {
-    if (localStorage.length !== 0) {
-      for (let i = 0; i < localStorage.length; i += 1) {
-        if (localStorage.key(i) !== "loglevel:webpack-dev-server") {
-          this.todos = [
-            ...this.todos,
-            JSON.parse(localStorage.getItem(localStorage.key(i))),
-          ];
-        }
+    if (localStorage.length === 0) return;
+
+    for (let i = 0; i < localStorage.length; i += 1) {
+      if (localStorage.key(i) !== "loglevel:webpack-dev-server") {
+        this.todos = [
+          ...this.todos,
+          JSON.parse(localStorage.getItem(localStorage.key(i))),
+        ];
       }
     }
   },
@@ -55,6 +59,19 @@ export default {
     handleRemoveTodo(todoId) {
       localStorage.removeItem(todoId);
       this.todos = this.todos.filter((todo) => todo.id !== todoId);
+    },
+
+    handleToggleTodo(todoId) {
+      const currentTodos = [...this.todos];
+      const todo = currentTodos.find((todo) => todo.id === todoId);
+
+      if (todo) {
+        todo.isDone = !todo.isDone;
+        this.todos = currentTodos;
+      }
+
+      localStorage.removeItem(todoId);
+      localStorage.setItem(todo.id, JSON.stringify(todo));
     },
   },
 };
