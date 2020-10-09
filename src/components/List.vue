@@ -6,7 +6,7 @@
           text
         }}</span>
         <button class="remove-button" type="button" @click="handleButton(id)">
-          <img class="remove-icon" src="../assets/delete-icon.svg" />
+          <img class="remove-icon" src="../assets/images/delete-icon.svg" />
         </button>
       </li>
     </ul>
