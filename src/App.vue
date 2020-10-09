@@ -128,7 +128,6 @@ export default {
 .todo-wrapper {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   width: 400px;
   height: 600px;
