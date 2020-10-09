@@ -4,11 +4,15 @@
       <Header />
       <Input v-on:onAddTodo="handleAddTodo" />
       <List
-        v-bind:todos="todos"
+        v-bind:todos="filterTodos"
         v-on:onRemoveTodo="handleRemoveTodo"
         v-on:onToggleTodo="handleToggleTodo"
       />
-      <Footer />
+      <Footer
+        v-bind:filterType="filterType"
+        v-bind:size="filterTodos.length"
+        v-on:onFilterType="handleFilterType"
+      />
     </div>
   </div>
 </template>
@@ -31,7 +35,26 @@ export default {
   data() {
     return {
       todos: [],
+      filterType: "ALL",
     };
+  },
+
+  computed: {
+    filterTodos() {
+      switch (this.filterType) {
+        case "ALL": {
+          return this.todos;
+        }
+        case "DOING": {
+          return this.todos.filter((todo) => todo.isDone === false);
+        }
+        case "DONE": {
+          return this.todos.filter((todo) => todo.isDone === true);
+        }
+        default:
+          return [];
+      }
+    },
   },
 
   created() {
@@ -75,6 +98,10 @@ export default {
 
       localStorage.removeItem(todoId);
       localStorage.setItem(todo.id, JSON.stringify(todo));
+    },
+
+    handleFilterType(filterType) {
+      this.filterType = filterType;
     },
   },
 };
