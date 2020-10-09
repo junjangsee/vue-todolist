@@ -12,6 +12,7 @@
         v-bind:filterType="filterType"
         v-bind:size="filterTodos.length"
         v-on:onFilterType="handleFilterType"
+        v-on:onClearTodo="handleClearTodo"
       />
     </div>
   </div>
@@ -102,6 +103,11 @@ export default {
 
     handleFilterType(filterType) {
       this.filterType = filterType;
+    },
+
+    handleClearTodo() {
+      this.todos = [];
+      localStorage.clear();
     },
   },
 };
