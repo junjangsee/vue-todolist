@@ -19,6 +19,8 @@
 </template>
 
 <script>
+import "./assets/css/reset.css";
+
 import Header from "./components/Header";
 import Input from "./components/Input";
 import List from "./components/List";
