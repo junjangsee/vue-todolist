@@ -8,6 +8,7 @@
         v-on:onRemoveTodo="handleRemoveTodo"
         v-on:onToggleTodo="handleToggleTodo"
       />
+      <Footer />
     </div>
   </div>
 </template>
@@ -16,6 +17,7 @@
 import Header from "./components/Header";
 import Input from "./components/Input";
 import List from "./components/List";
+import Footer from "./components/Footer";
 
 export default {
   name: "App",
@@ -23,6 +25,7 @@ export default {
     Header,
     Input,
     List,
+    Footer,
   },
 
   data() {
