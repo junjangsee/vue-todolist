@@ -12,8 +12,6 @@
 
 ## 설치 및 실행
 
-- 로컬 환경
-
 ```text
 $ git clone https://github.com/junjangsee/vue-todolist.git
 $ cd vue-todolist
@@ -55,4 +53,4 @@ Production: [https://epic-elion-6adca5.netlify.app/](https://epic-elion-6adca5.n
 ## 작업 내용
 
 - [Issues](https://github.com/junjangsee/vue-todolist/issues?q=is%3Aissue+is%3Aclosed)
-- [Pull Request](https://github.com/junjangsee/vue-todolist/pulls?q=is%3Apr+is%3Aclosed)
+- [Pull Requests](https://github.com/junjangsee/vue-todolist/pulls?q=is%3Apr+is%3Aclosed)
