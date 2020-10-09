@@ -14,7 +14,9 @@
         </button>
       </li>
       <li>
-        <button class="clear-todo" type="button">Clear Todo</button>
+        <button class="clear-todo" type="button" @click="handleClear">
+          Clear Todo
+        </button>
       </li>
     </ul>
   </footer>
@@ -22,7 +24,7 @@
 
 <script>
 export default {
-  props: ["filterType", "size"],
+  props: ["filterType", "size", "handleClearTodo"],
   data() {
     return {
       filters: ["ALL", "DOING", "DONE"],
@@ -32,6 +34,10 @@ export default {
   methods: {
     handleFilterType(type) {
       this.$emit("onFilterType", type);
+    },
+
+    handleClear() {
+      this.$emit("onClearTodo");
     },
   },
 };
