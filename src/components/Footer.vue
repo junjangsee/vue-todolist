@@ -14,7 +14,7 @@
         </button>
       </li>
       <li>
-        <button class="clear-todo" type="button" @click="handleClear">
+        <button class="btn_clear" type="button" @click="handleClear">
           CLEAR
         </button>
       </li>
@@ -82,7 +82,7 @@ export default {
   font-weight: 700;
 }
 
-.footer > .filter-list > li > .clear-todo:hover {
+.footer > .filter-list > li > .btn_clear:hover {
   color: red;
 }
 </style>

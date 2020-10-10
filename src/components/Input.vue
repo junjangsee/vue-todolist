@@ -2,7 +2,7 @@
   <input
     type="text"
     v-model="text"
-    class="new-todo"
+    class="input-todo"
     placeholder="Write Your Todo..."
     autofocus
     autocomplete="off"
@@ -29,7 +29,7 @@ export default {
 </script>
 
 <style scoped>
-.new-todo {
+.input-todo {
   width: 100%;
   height: 40px;
   padding: 0 15px 0 15px;
@@ -38,10 +38,10 @@ export default {
   letter-spacing: 2px;
   box-shadow: 5px 5px 20px #489dcf;
 }
-.new-todo::-webkit-input-placeholder {
+.input-todo::-webkit-input-placeholder {
   font-size: 15px;
 }
-.new-todo::-ms-input-placeholder {
+.input-todo::-ms-input-placeholder {
   font-size: 15px;
 }
 </style>
