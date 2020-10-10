@@ -4,13 +4,13 @@
       <Header />
       <Input v-on:onAddTodo="handleAddTodo" />
       <List
-        v-bind:todos="filterTodos"
+        v-bind:todos="filtedTodos"
         v-on:onRemoveTodo="handleRemoveTodo"
         v-on:onToggleTodo="handleToggleTodo"
       />
       <Footer
         v-bind:filterType="filterType"
-        v-bind:size="filterTodos.length"
+        v-bind:size="filtedTodos.length"
         v-on:onFilterType="handleFilterType"
         v-on:onClearTodo="handleClearTodo"
       />
@@ -43,7 +43,7 @@ export default {
   },
 
   computed: {
-    filterTodos() {
+    filtedTodos() {
       switch (this.filterType) {
         case "ALL": {
           return this.todos;
@@ -61,16 +61,7 @@ export default {
   },
 
   created() {
-    if (localStorage.length === 0) return;
-
-    for (let i = 0; i < localStorage.length; i += 1) {
-      if (localStorage.key(i) !== "loglevel:webpack-dev-server") {
-        this.todos = [
-          ...this.todos,
-          JSON.parse(localStorage.getItem(localStorage.key(i))),
-        ];
-      }
-    }
+    this.todos = JSON.parse(localStorage.getItem("todos")) || [];
   },
 
   methods: {
@@ -81,26 +72,33 @@ export default {
         isDone: false,
       };
 
-      localStorage.setItem(todo.id, JSON.stringify(todo));
-      this.todos = [...this.todos, todo];
+      const newTodo = [...this.todos, todo];
+      localStorage.setItem("todos", JSON.stringify(newTodo));
+      this.todos = newTodo;
     },
 
     handleRemoveTodo(todoId) {
-      localStorage.removeItem(todoId);
-      this.todos = this.todos.filter((todo) => todo.id !== todoId);
+      const currentTodos = [...this.todos];
+      const removedTodos = currentTodos.filter((todo) => todo.id !== todoId);
+
+      this.todos = removedTodos;
+
+      localStorage.clear();
+      localStorage.setItem("todos", JSON.stringify(removedTodos));
     },
 
     handleToggleTodo(todoId) {
       const currentTodos = [...this.todos];
       const todo = currentTodos.find((todo) => todo.id === todoId);
 
-      if (todo) {
-        todo.isDone = !todo.isDone;
-        this.todos = currentTodos;
-      }
+      if (!todo) return;
 
-      localStorage.removeItem(todoId);
-      localStorage.setItem(todo.id, JSON.stringify(todo));
+      todo.isDone = !todo.isDone;
+      const toggledTodos = currentTodos;
+      this.todos = toggledTodos;
+
+      localStorage.clear();
+      localStorage.setItem("todos", JSON.stringify(toggledTodos));
     },
 
     handleFilterType(filterType) {
