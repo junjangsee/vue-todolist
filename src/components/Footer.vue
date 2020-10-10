@@ -24,7 +24,7 @@
 
 <script>
 export default {
-  props: ["filterType", "size", "handleClearTodo"],
+  props: ["filterType", "size"],
   data() {
     return {
       filters: ["ALL", "DOING", "DONE"],
