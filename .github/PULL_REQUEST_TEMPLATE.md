@@ -4,7 +4,8 @@
 
 - [ ] Code Review
 - [ ] New Feature
-- [ ] Bug Fix
+- [ ] Fix
+- [ ] Refactor
 - [ ] CI / CD
 - [ ] Setup
 
