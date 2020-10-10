@@ -2,11 +2,11 @@
   <section class="main">
     <ul class="todo-list">
       <li v-for="{id, text, isDone} in todos" v-bind:key="id" class="todo">
-        <span v-bind:class="{isDone: isDone}" @click="handleToggle(id)">{{
+        <span v-bind:class="{completed: isDone}" @click="handleToggle(id)">{{
           text
         }}</span>
-        <button class="remove-button" type="button" @click="handleButton(id)">
-          <img class="remove-icon" src="../assets/images/delete-icon.svg" />
+        <button class="btn_remove" type="button" @click="handleButton(id)">
+          <img class="remove-icon" src="../assets/images/remove-icon.svg" />
         </button>
       </li>
     </ul>
@@ -60,13 +60,13 @@ export default {
   line-height: 15px;
 }
 
-.main > .todo-list > .todo > .remove-button {
+.main > .todo-list > .todo > .btn_remove {
   position: relative;
   width: 20px;
   height: 20px;
 }
 
-.main > .todo-list > .todo > .remove-button > .remove-icon {
+.main > .todo-list > .todo > .btn_remove > .remove-icon {
   width: 100%;
   height: 100%;
   cursor: pointer;
@@ -76,7 +76,7 @@ export default {
   margin: 0 0 0 0;
 }
 
-.isDone {
+.completed {
   text-decoration-line: line-through;
 }
 </style>
