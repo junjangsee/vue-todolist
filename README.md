@@ -1,6 +1,6 @@
-# 유비씨(UVC) 과제: TodoList 구현하기
+# Vue.js로 TodoList 구현하기
 
-이 프로젝트는 유비씨(UVC) 과제입니다.
+이 프로젝트는 Vue를 활용한 TodoList입니다.
 
 ## 기술 스택
 
